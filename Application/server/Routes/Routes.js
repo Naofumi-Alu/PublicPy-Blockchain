@@ -8,9 +8,6 @@ Routes.get('/',(req,res)=>{
   res.render('login');
 })
 
-Routes.get('/login',(req,res)=>{
-  res.render('login');
-})
 Routes.post('/login',async (req,res)=>{
   await login(req,res);
 })
