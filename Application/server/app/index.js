@@ -18,8 +18,12 @@ app.set('views',path.join(__dirname,"../../Views"));
 app.engine('html', ejs.renderFile);
 
 //Middlewhere Routes
-app.use(Routes);
+app.use(morgan('dev'));
+app.use(express.json());
+app.use(express.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname,'../../public')));
+app.use(Routes);
+
 
 
 
