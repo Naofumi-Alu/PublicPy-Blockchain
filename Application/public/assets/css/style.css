@@ -46,6 +46,11 @@ h6 {
   background: #37517e;
 }
 
+#preloader.fade-out {
+  opacity: 0;
+  visibility: hidden;
+}
+
 #preloader:before {
   content: "";
   position: fixed;

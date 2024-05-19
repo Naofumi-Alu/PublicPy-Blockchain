@@ -1,14 +1,16 @@
 import express from 'express';
-import authenticateToken from '../API/auth.js';
+import {authenticateToken, redirectIfAutheticated} from '../API/auth.js';
 import login from '../API/login.js';
 
 const Routes = express.Router();
 
-Routes.get('/',(req,res)=>{
+
+Routes.get('/login',redirectIfAutheticated,(req,res)=>{
   res.render('login');
 })
-
 Routes.post('/login',async (req,res)=>{
+  //console.log("request ", req.body);
+  //console.dir(req , {depth:null});
   await login(req,res);
 })
 
@@ -18,7 +20,7 @@ Routes.get('/Signup',(req,res)=>{
 
 Routes.use(authenticateToken);
 
-Routes.get('/home',(req,res)=>{
+Routes.get('/index',(req,res)=>{
   res.render('index');
 })
 

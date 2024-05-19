@@ -22,17 +22,17 @@
                 <% if (typeof error !== 'undefined') {%>
                   <div class="alert alert-danger"><%= error %> </div>
                 <% } %>
-                <form method="POST" style="width: 23rem;">
+                <form method="POST" action="/login" style="width: 23rem;">
 
                   <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Log in</h3>
 
                   <div class="form-outline mb-4">
-                    <input type="email" id="email" class="form-control form-control-lg" />
+                    <input name="username" type="email" id="email" class="form-control form-control-lg" />
                     <label class="form-label" for="email">Email address</label>
                   </div>
 
                   <div class="form-outline mb-4">
-                    <input type="password" id="password" class="form-control form-control-lg" />
+                    <input name="password"type="password" id="password" class="form-control form-control-lg" />
                     <label class="form-label" for="password">Password</label>
                   </div>
 
@@ -41,7 +41,7 @@
                   </div>
 
               
-                  <p>Don't have an account? <a href="/Signup" class="link-info">Register here</a></p>
+                  <p>Don t have an account? <a href="/Signup" class="link-info">Register here</a></p>
 
                 </form>
 

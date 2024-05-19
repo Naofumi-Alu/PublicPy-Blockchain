@@ -1,6 +1,7 @@
 import express from 'express';
 import path from 'path';
 import morgan from 'morgan'
+import cookieParser from 'cookie-parser';
 import { env } from 'process';
 import Routes from '../Routes/Routes.js';
 import { fileURLToPath } from 'url';
@@ -21,8 +22,9 @@ app.engine('html', ejs.renderFile);
 app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
+app.use(cookieParser());
 app.use(express.static(path.join(__dirname,'../../public')));
-app.use(Routes);
+app.use('/',Routes);
 
 
 
