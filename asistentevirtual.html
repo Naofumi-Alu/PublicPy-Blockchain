@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Asistente Virtual de Pagos</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 0;
+    }
+
+    .chat-container {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 350px;
+      height: 500px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+
+    .chat-header {
+      background-color: #4CAF50;
+      color: #fff;
+      padding: 15px;
+      text-align: center;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+    }
+
+    .chat-header h3 {
+      margin: 0;
+      font-size: 18px;
+    }
+
+    .chat-body {
+      height: 400px;
+      overflow-y: scroll;
+      padding: 20px;
+    }
+
+    .chat-body .user,
+    .chat-body .assistant {
+      display: flex;
+      margin-bottom: 10px;
+    }
+
+    .chat-body .user {
+      justify-content: flex-end;
+    }
+
+    .chat-body .user .message {
+      background-color: #4CAF50;
+      color: #fff;
+      padding: 10px 15px;
+      border-radius: 15px 15px 0 15px;
+    }
+
+    .chat-body .assistant .message {
+      background-color: #f1f1f1;
+      color: #333;
+      padding: 10px 15px;
+      border-radius: 15px 15px 15px 0;
+    }
+
+    .chat-input {
+      display: flex;
+      padding: 10px;
+      background-color: #f1f1f1;
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+      align-content: end;
+    }
+
+    .chat-input input {
+      flex-grow: 1;
+      padding: 10px;
+      border: none;
+      border-radius: 20px;
+      font-size: 14px;
+    }
+
+    .chat-input button {
+      margin-left: 10px;
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      border-radius: 20px;
+      padding: 10px 15px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="chat-container">
+    <div class="chat-header">
+      <h3>Asistente Virtual</h3>
+    </div>
+    <div class="chat-body">
+</head>
+<body>
+  <div class="chat-container">
+    <div class="chat-messages" id="chat-messages">
+      <p>Hola, soy el asistente virtual de pagos. ¿En qué puedo ayudarte?</p>
+    </div>
+    <div class="chat-input">
+      <input type="text" id="chat-input" placeholder="Escribe tu mensaje aquí">
+      <button id="chat-button">Enviar</button>
+    </div>
+  </div>
+
+  <script>
+    const chatMessages = document.getElementById('chat-messages');
+    const chatInput = document.getElementById('chat-input');
+    const chatButton = document.getElementById('chat-button');
+
+    chatButton.addEventListener('click', () => {
+      const message = chatInput.value.trim();
+      if (message) {
+        const userMessage = document.createElement('p');
+        userMessage.textContent = `Tú: ${message}`;
+        chatMessages.appendChild(userMessage);
+
+        let assistantResponse;
+        switch (message.toLowerCase()) {
+          case 'hola':
+            assistantResponse = 'Hola, ¿en qué puedo ayudarte con los pagos virtuales?';
+            break;
+          case 'cómo hacer un pago':
+            assistantResponse = 'Para hacer un pago, sigue estos pasos:\n1. Selecciona el método de pago\n2. Ingresa los datos de tu tarjeta o cuenta bancaria\n3. Revisa los detalles del pago\n4. Confirma el pago';
+            break;
+          case 'cuáles son los métodos de pago':
+            assistantResponse = 'Aceptamos los siguientes métodos de pago:\n- Tarjeta de crédito\n- Tarjeta de débito\n- Transferencia bancaria\n- Pago móvil';
+            break;
+          case 'cómo resolver un problema con un pago':
+            assistantResponse = 'Si tienes algún problema con un pago, por favor contáctanos a través de nuestro servicio de atención al cliente. Estaremos encantados de ayudarte a resolver el inconveniente.';
+            break;
+          default:
+            assistantResponse = 'Lo siento, no puedo procesar esa solicitud. Por favor, inténtalo de nuevo.';
+        }
+
+        const assistantMessage = document.createElement('p');
+        assistantMessage.textContent = `Asistente: ${assistantResponse}`;
+        chatMessages.appendChild(assistantMessage);
+
+        chatInput.value = '';
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+      }
+    });
+  </script>
+</body>
+</html>
