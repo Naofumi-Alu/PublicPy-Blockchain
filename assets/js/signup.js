@@ -1,22 +1,18 @@
 
-//const inputs = document.querySelectorAll("input");
-//const emailElement = document.querySelector("#email")
-//const passwordElement = document.querySelector("#password")
-//let form = document.querySelector("form");
+const inputs = document.querySelectorAll("input");
+const username = document.querySelector("#name")
+const emailElement = document.querySelector("#email")
+const passwordElement = document.querySelector("#password")
+const confirm_password = document.querySelector("#confirm_password")
 let form = document.querySelector("form");
-const emailElement = "josea.maciast@ecci.edu.co"
-const passwordElement = "1234567"
 
 
-const url = "https://api-pagos-drf.onrender.com/users/login/"
+
+const url = "https://api-pagos-drf.onrender.com/users/signup/"
 const locationToken = 'pagos.auth'
 
 
-//TO:modificar logica ya que si expira el token no puedes acceder
-if (localStorage.getItem(locationToken)) {
-    console.log("LOGUEADO")
-    window.location.replace("./index.html")   
-}
+
 
 form.addEventListener('submit', async function (event) {
     event.preventDefault();
