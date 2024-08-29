@@ -4,6 +4,10 @@
 ### **- Jaime Cenzano**
 ### **- Cesar Quesñay**
 
+
+# **COLABORACIÓNES - Integración funcionalidades**
+### **- Alu Naofumi**
+
 ___
 
 Se especifican las rutas para login y registro de usuarios:
